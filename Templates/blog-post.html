@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Blog Post {{ blog.title }}{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block main %}
+  <h2>Farmer Jerms's Almanac for {{ blog.date }}</h2>
+  <h1>{{blog.title}}</h1>
+  <article id="{{ blog.id }}">
+  {{ blog.html|safe }}
+  </article>
+  {% if messages %}
+  <p class="important">
+      {{ messages }}.
+  </p>
+  {% endif %}
+{% endblock %}
+
